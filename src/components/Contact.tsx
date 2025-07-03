@@ -12,15 +12,17 @@ export default function Contact() {
     agree: false,
   });
 
-  const [errors, setErrors] = useState({});
+  const [errors, setErrors] = useState<{ [key: string]: string }>({});
 
-  const handleChange = (e) => {
-    const { name, value, type, checked } = e.target;
-    setFormData({
-      ...formData,
-      [name]: type === 'checkbox' ? checked : value,
-    });
-  };
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+  const { name, value, type, checked } = e.target;
+  setFormData({
+    ...formData,
+    [name]: type === 'checkbox' ? checked : value,
+  });
+};
+
 
   const validate = () => {
     const newErrors = {};
@@ -33,7 +35,8 @@ export default function Contact() {
     return newErrors;
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = (e: React.FormEvent) => {
+
     e.preventDefault();
     const newErrors = validate();
     setErrors(newErrors);
