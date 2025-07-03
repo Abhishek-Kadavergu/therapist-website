@@ -1,25 +1,23 @@
-"use client";
+'use client';
 
-import Image from "next/image";
+import Image from 'next/image';
 
 const services = [
   {
-    title: "Christian Individual Counseling in Richmond, VA",
-    description:
-      "Discover Peace, Purpose, and God’s Truth in Richmond, VA.",
-    image: "/individual.png",
+    title: 'Christian Individual Counseling in Richmond, VA',
+    description: 'Discover Peace, Purpose, and God’s Truth in Richmond, VA.',
+    image: '/individual.png',
   },
   {
-    title: "Christian Couples Counseling in Richmond, VA",
-    description:
-      "Heal Your Relationship, Grow Closer to God Together in Richmond.",
-    image: "/couple.png",
+    title: 'Christian Couples Counseling in Richmond, VA',
+    description: 'Heal Your Relationship, Grow Closer to God Together in Richmond.',
+    image: '/couple.png',
   },
 ];
 
 export default function Services() {
   return (
-    <section id="services" className="relative py-20 px-4 bg-gray-100" id="services">
+    <section id="services" className="relative py-20 px-4 bg-gray-100">
       <div className="max-w-6xl mx-auto">
         <h2 className="text-4xl font-bold text-gray-800 mb-12">How I Help</h2>
         <div className="grid md:grid-cols-2 gap-8">

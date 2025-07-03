@@ -1,4 +1,5 @@
 'use client';
+
 import { useState } from 'react';
 
 export default function Contact() {
@@ -40,7 +41,6 @@ export default function Contact() {
     if (Object.keys(newErrors).length === 0) {
       console.log('Form submitted:', formData);
       alert('Form submitted successfully!');
-      // Reset form or call API here
     }
   };
 
@@ -57,7 +57,8 @@ export default function Contact() {
             <a
               href="https://www.google.com/maps"
               className="text-blue-600 underline mt-2 inline-block"
-              target="_blank" rel="noopener noreferrer"
+              target="_blank"
+              rel="noopener noreferrer"
             >
               Google Maps
             </a>
@@ -83,7 +84,9 @@ export default function Contact() {
                 placeholder="Name"
                 value={formData.name}
                 onChange={handleChange}
-                className={`border rounded px-4 py-2 w-full focus:outline-none focus:ring-2 ${errors.name ? 'ring-red-400' : 'ring-blue-300'}`}
+                className={`border rounded px-4 py-2 w-full focus:outline-none focus:ring-2 ${
+                  errors.name ? 'ring-red-400' : 'ring-blue-300'
+                }`}
               />
               {errors.name && <p className="text-red-500 text-sm mt-1">{errors.name}</p>}
             </div>
@@ -96,7 +99,9 @@ export default function Contact() {
                 placeholder="Phone"
                 value={formData.phone}
                 onChange={handleChange}
-                className={`border rounded px-4 py-2 w-full focus:outline-none focus:ring-2 ${errors.phone ? 'ring-red-400' : 'ring-blue-300'}`}
+                className={`border rounded px-4 py-2 w-full focus:outline-none focus:ring-2 ${
+                  errors.phone ? 'ring-red-400' : 'ring-blue-300'
+                }`}
               />
               {errors.phone && <p className="text-red-500 text-sm mt-1">{errors.phone}</p>}
             </div>
@@ -109,12 +114,14 @@ export default function Contact() {
                 placeholder="you@example.com"
                 value={formData.email}
                 onChange={handleChange}
-                className={`border rounded px-4 py-2 w-full focus:outline-none focus:ring-2 ${errors.email ? 'ring-red-400' : 'ring-blue-300'}`}
+                className={`border rounded px-4 py-2 w-full focus:outline-none focus:ring-2 ${
+                  errors.email ? 'ring-red-400' : 'ring-blue-300'
+                }`}
               />
               {errors.email && <p className="text-red-500 text-sm mt-1">{errors.email}</p>}
             </div>
 
-            {/* What brings you here */}
+            {/* Reason */}
             <div>
               <textarea
                 name="reason"
@@ -122,12 +129,14 @@ export default function Contact() {
                 value={formData.reason}
                 onChange={handleChange}
                 rows={4}
-                className={`border rounded px-4 py-2 w-full focus:outline-none focus:ring-2 ${errors.reason ? 'ring-red-400' : 'ring-blue-300'}`}
+                className={`border rounded px-4 py-2 w-full focus:outline-none focus:ring-2 ${
+                  errors.reason ? 'ring-red-400' : 'ring-blue-300'
+                }`}
               ></textarea>
               {errors.reason && <p className="text-red-500 text-sm mt-1">{errors.reason}</p>}
             </div>
 
-            {/* Preferred time */}
+            {/* Preferred Time */}
             <div>
               <input
                 type="text"
@@ -135,9 +144,13 @@ export default function Contact() {
                 placeholder="Preferred time to reach you"
                 value={formData.preferredTime}
                 onChange={handleChange}
-                className={`border rounded px-4 py-2 w-full focus:outline-none focus:ring-2 ${errors.preferredTime ? 'ring-red-400' : 'ring-blue-300'}`}
+                className={`border rounded px-4 py-2 w-full focus:outline-none focus:ring-2 ${
+                  errors.preferredTime ? 'ring-red-400' : 'ring-blue-300'
+                }`}
               />
-              {errors.preferredTime && <p className="text-red-500 text-sm mt-1">{errors.preferredTime}</p>}
+              {errors.preferredTime && (
+                <p className="text-red-500 text-sm mt-1">{errors.preferredTime}</p>
+              )}
             </div>
 
             {/* Agree to be contacted */}
@@ -164,7 +177,7 @@ export default function Contact() {
             </button>
           </form>
           <p className="text-xs text-gray-500 mt-2">
-            By submitting, you confirm you're 18+ and agree to our privacy policy.
+            By submitting, you confirm you&apos;re 18+ and agree to our privacy policy.
           </p>
         </div>
       </div>

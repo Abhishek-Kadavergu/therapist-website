@@ -1,6 +1,5 @@
 'use client';
 
-import Link from 'next/link';
 import { useState } from 'react';
 import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/solid';
 
@@ -10,12 +9,12 @@ export default function Navbar() {
   const toggleMenu = () => setMenuOpen(!menuOpen);
 
   const navLinks = [
-    { label: "Home", href: "#hero" },
-    { label: "About", href: "#about" },
-    { label: "Services", href: "#services" },
-    { label: "Testimonials", href: "#testimonials" },
-    { label: "FAQ", href: "#faq" },
-    { label: "Contact", href: "#contact" },
+    { label: 'Home', href: '#hero' },
+    { label: 'About', href: '#about' },
+    { label: 'Services', href: '#services' },
+    { label: 'Testimonials', href: '#testimonials' },
+    { label: 'FAQ', href: '#faq' },
+    { label: 'Contact', href: '#contact' },
   ];
 
   return (
@@ -23,6 +22,7 @@ export default function Navbar() {
       <div className="max-w-6xl mx-auto px-4 py-4 flex justify-between items-center">
         <div className="text-2xl font-bold text-teal-700">Serena Blake</div>
 
+        {/* Desktop Menu */}
         <nav className="hidden md:flex gap-6">
           {navLinks.map((link) => (
             <a
@@ -35,7 +35,7 @@ export default function Navbar() {
           ))}
         </nav>
 
-        {/* Mobile menu toggle */}
+        {/* Mobile Toggle Button */}
         <div className="md:hidden">
           <button onClick={toggleMenu} className="text-gray-700 focus:outline-none">
             {menuOpen ? (
@@ -47,7 +47,7 @@ export default function Navbar() {
         </div>
       </div>
 
-      {/* Mobile menu */}
+      {/* Mobile Dropdown Menu */}
       {menuOpen && (
         <div className="md:hidden bg-white px-4 pb-4 space-y-2">
           {navLinks.map((link) => (
