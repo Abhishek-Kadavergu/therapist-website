@@ -14,18 +14,20 @@ export default function Contact() {
 
   const [errors, setErrors] = useState<{ [key: string]: string }>({});
 
+  const handleChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+  ) => {
+    const target = e.target as HTMLInputElement | HTMLTextAreaElement;
+    const { name, value, type } = target;
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-  const { name, value, type, checked } = e.target;
-  setFormData({
-    ...formData,
-    [name]: type === 'checkbox' ? checked : value,
-  });
-};
-
+    setFormData({
+      ...formData,
+      [name]: type === 'checkbox' ? (target as HTMLInputElement).checked : value,
+    });
+  };
 
   const validate = () => {
-    const newErrors = {};
+    const newErrors: { [key: string]: string } = {};
     if (!formData.name) newErrors.name = 'Name is required';
     if (!formData.phone) newErrors.phone = 'Phone number is required';
     if (!formData.email) newErrors.email = 'Email is required';
@@ -36,7 +38,6 @@ export default function Contact() {
   };
 
   const handleSubmit = (e: React.FormEvent) => {
-
     e.preventDefault();
     const newErrors = validate();
     setErrors(newErrors);
@@ -87,7 +88,7 @@ export default function Contact() {
                 placeholder="Name"
                 value={formData.name}
                 onChange={handleChange}
-                className={`border rounded px-4 py-2 w-full focus:outline-none focus:ring-2 ${
+                className={`border rounded px-4 py-2 w-full text-black focus:outline-none focus:ring-2 ${
                   errors.name ? 'ring-red-400' : 'ring-blue-300'
                 }`}
               />
@@ -102,7 +103,7 @@ export default function Contact() {
                 placeholder="Phone"
                 value={formData.phone}
                 onChange={handleChange}
-                className={`border rounded px-4 py-2 w-full focus:outline-none focus:ring-2 ${
+                className={`border rounded px-4 py-2 w-full text-black focus:outline-none focus:ring-2 ${
                   errors.phone ? 'ring-red-400' : 'ring-blue-300'
                 }`}
               />
@@ -117,7 +118,7 @@ export default function Contact() {
                 placeholder="you@example.com"
                 value={formData.email}
                 onChange={handleChange}
-                className={`border rounded px-4 py-2 w-full focus:outline-none focus:ring-2 ${
+                className={`border rounded px-4 py-2 w-full text-black focus:outline-none focus:ring-2 ${
                   errors.email ? 'ring-red-400' : 'ring-blue-300'
                 }`}
               />
@@ -132,7 +133,7 @@ export default function Contact() {
                 value={formData.reason}
                 onChange={handleChange}
                 rows={4}
-                className={`border rounded px-4 py-2 w-full focus:outline-none focus:ring-2 ${
+                className={`border rounded px-4 py-2 w-full text-black focus:outline-none focus:ring-2 ${
                   errors.reason ? 'ring-red-400' : 'ring-blue-300'
                 }`}
               ></textarea>
@@ -147,7 +148,7 @@ export default function Contact() {
                 placeholder="Preferred time to reach you"
                 value={formData.preferredTime}
                 onChange={handleChange}
-                className={`border rounded px-4 py-2 w-full focus:outline-none focus:ring-2 ${
+                className={`border rounded px-4 py-2 w-full text-black focus:outline-none focus:ring-2 ${
                   errors.preferredTime ? 'ring-red-400' : 'ring-blue-300'
                 }`}
               />
@@ -165,7 +166,7 @@ export default function Contact() {
                 onChange={handleChange}
                 className="mt-1"
               />
-              <label htmlFor="agree" className="text-gray-700 text-sm">
+              <label htmlFor="agree" className="text-black text-sm">
                 I agree to be contacted
               </label>
             </div>
